@@ -3,7 +3,7 @@ import socket
 t_host=input("Enter Host:  \n")
 t_port=int(input("Enter PORT:  \n"))
 
-#creating scocket
+#creating socket
 client=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
 #connect the client
